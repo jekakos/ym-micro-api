@@ -21,3 +21,15 @@ https://github.com/MarshalX/yandex-music-api/discussions/513#discussioncomment-5
 ```http
 GET http://127.0.0.1:5050/get_song_link?artist=[Artist Name]&title=[Song Title]
 ```
+
+## Response Structure
+
+```plaintext
+{
+    "id": "string",          // Track ID Yandex Music
+    "title": "string",
+    "artist": "string",
+    "album": "string",
+    "track_url": "string"    // Link to Yandex Music
+}
+```
