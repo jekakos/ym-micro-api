@@ -1,14 +1,17 @@
 # Yandex Music Search Micro-API
 
-## Используемые библиотеки
+## Packeges
 
-- [Flask](https://flask.palletsprojects.com/): Используется для создания и запуска веб-сервера и обработки HTTP-запросов.
-- [python-dotenv](https://pypi.org/project/python-dotenv/): Используется для загрузки переменных среды из файла `.env`.
-- [yandex-music](https://yandex-music.readthedocs.io/en/latest/): Используется для взаимодействия с API Yandex Music.
+- [Flask](https://flask.palletsprojects.com/): Used to create and run a web server and process HTTP requests.
+- [python-dotenv](https://pypi.org/project/python-dotenv/): Used to load environment variables from a `.env` file.
+- [yandex-music](https://yandex-music.readthedocs.io/en/latest/): Used to interact with the Yandex Music API.
 
-## Установка
-
-Для установки всех необходимых библиотек вы можете использовать следующую команду:
+## Setup
 
 ```bash
 pip install Flask python-dotenv yandex-music
+```
+
+## Usage
+
+http://127.0.0.1:5050/get_song_link?artist=<Artist Name>title=<Song Title>
