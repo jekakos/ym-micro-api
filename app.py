@@ -8,6 +8,7 @@ import pprint
 app = Flask(__name__)
 load_dotenv()
 yandex_music_token = os.getenv('YANDEX_MUSIC_TOKEN')
+client = Client(yandex_music_token).init()
 
 @app.route('/get_song_link', methods=['GET'])
 def get_song_link():
@@ -18,7 +19,6 @@ def get_song_link():
         return jsonify({'error': 'Bad Request', 'message': 'Both artist and title are required'}), 400
     
     try:
-      client = Client(yandex_music_token).init()
       search_result = client.search(f'{artist} {title}')
     except yandex_music.exceptions.YandexMusicError as e:
       return jsonify({'error': 'Yandex Music Error', 'message': str(e)}), 500
