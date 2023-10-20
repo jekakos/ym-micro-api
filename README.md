@@ -12,6 +12,10 @@
 pip install Flask python-dotenv yandex-music
 ```
 
+## How to get token
+
+https://github.com/MarshalX/yandex-music-api/discussions/513#discussioncomment-5272680
+
 ## Usage
 
 http://127.0.0.1:5050/get_song_link?artist=<Artist Name>title=<Song Title>
