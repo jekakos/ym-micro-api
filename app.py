@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify
+from yandex_music.utils.request import Request
 from yandex_music import Client
 import yandex_music.exceptions
 import pprint
@@ -8,7 +9,15 @@ import pprint
 app = Flask(__name__)
 load_dotenv()
 yandex_music_token = os.getenv('YANDEX_MUSIC_TOKEN')
-client = Client(yandex_music_token).init()
+proxy_user = os.getenv('PROXY_USER')
+proxy_password = os.getenv('PROXY_PASSWORD')
+proxy_ip = os.getenv('PROXY_IP')
+proxy_port = os.getenv('PROXY_PORT')
+proxy_url = 'socks5://' + proxy_user + ':' + \
+    proxy_password + '@' + proxy_ip + ':' + proxy_port
+
+yandex_request = Request(proxy_url=proxy_url)
+client = Client(token=yandex_music_token, request=yandex_request).init()
 
 
 @app.route('/get_track_info', methods=['GET'])
