@@ -8,6 +8,7 @@ import pprint
 
 app = Flask(__name__)
 load_dotenv()
+app_port = proxy_port = os.getenv('PORT')
 yandex_music_token = os.getenv('YANDEX_MUSIC_TOKEN')
 proxy_user = os.getenv('PROXY_USER')
 proxy_password = os.getenv('PROXY_PASSWORD')
@@ -83,4 +84,4 @@ def get_track_link():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5050, debug=True)
+    app.run(host='0.0.0.0', port=app_port, debug=True)
